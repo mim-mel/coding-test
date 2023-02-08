@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>유한소수 판별하기</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b) {
+        // toFixed는 지정한 자리까지의 소수점을 보여준다
+        return Number((a / b).toFixed(10)) === a / b ? 1 : 2;
+      }
+
+      let a = 12;
+      let b = 21;
+      console.log(solution(a, b));
+    </script>
+
+    <!-- 풀이과정 
+
+    a/b 한 값을 toFixed()를 사용해 지정한 소수점까지 끊어낸다. 
+    무한소수는 소수점 10이상으로 반복되기 때문에 
+    무한소수인 경우 Number((a/b).toFixed(10))값이 0.8333333333 라면
+    a/b의 원래값은 0.8333333333333333...이 되어서 === 공식이 성립하지 않는다.  
+    -->
+  </body>
+</html>
