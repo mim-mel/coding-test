@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>특이한 정렬</title>
+  </head>
+  <body>
+    <script>
+      function solution(numlist, n) {
+        return numlist
+          .sort((a, b) => b - a)
+          .sort((a, b) => Math.abs(a - n) - Math.abs(b - n));
+      }
+
+      let numlist = [1, 2, 3, 4, 5, 6];
+      let n = 4;
+      console.log(solution(numlist, n));
+    </script>
+
+    <!-- 풀이과정 
+
+    1. 값이 똑같은 경우 큰 수가 먼저 앞에 올 수 있게 미리 numlist를 큰 순서대로 정렬해둔다.
+    2. n의 수만큼 뺀 값 중에 작은 값이 먼저 앞에 올수 있도록 정렬해준다. 
+
+    -->
+  </body>
+</html>
