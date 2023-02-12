@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>저주의 숫자3</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let answer = 0;
+        for (let i = 1; i <= n; i++) {
+          answer++;
+          while (
+            answer % 3 === 0 ||
+            answer.toString().split('').includes('3')
+          ) {
+            answer++;
+          }
+
+          console.log(answer);
+        }
+
+        return answer;
+      }
+
+      let n = 40;
+      console.log(solution(n));
+    </script>
+
+    <!-- 풀이과정 
+
+    1. for문을 통해서 answer를 1씩 증가시킨다.
+    2. for문 안에 while문을 사용해 answer가 3을 포함하고 있거나, 
+       3의 배수인 경우에는 answer를 추가적으로 한번 더 증가시켜준다.
+
+    -->
+  </body>
+</html>
