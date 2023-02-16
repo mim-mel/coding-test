@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>다항식 더하기</title>
+  </head>
+  <body>
+    <script>
+      function solution(polynomial) {
+        // polynomial string을 ' + '을 기준으로 배열을 만들어 +기호와 공백을 없앤다
+        const array = polynomial.split(' + ');
+        let xNum = 0;
+        let num = 0;
+
+        array.forEach(n => {
+          // array배열 요소가 x 요소를 포함하고 있다면
+          if (n.includes('x')) {
+            //논리연산자(||) 앞의 값이 false일 경우 뒤의 값 1이 xNum에 들어온다
+            const xStr = n.replace('x', '') || '1';
+            xNum += parseInt(xStr);
+          } else {
+            num += parseInt(n);
+          }
+        });
+
+        let answer = [];
+
+        //xNum의 값이 1이면 공백으로 바꾸어 x를 더해준 후 answer안에 넣는다.
+        //1이 아닌 경우에는 해당 숫자에 x를 더해준 후 answer안에 넣는다.
+        if (xNum) {
+          answer.push(`${xNum === 1 ? '' : xNum}x`);
+        }
+
+        //나은 일반 수 num을 answer안에
+        if (num) {
+          answer.push(num);
+        }
+
+        //모든 값을 더해주면 answer 배열은 ['4x', '7']의 형태가 된다.
+        // " + " 를 기준으로 join을 해준다.
+        return answer.join(' + ');
+      }
+
+      let polynomial = '3x + 7 + x';
+      console.log(solution(polynomial));
+    </script>
+  </body>
+</html>
