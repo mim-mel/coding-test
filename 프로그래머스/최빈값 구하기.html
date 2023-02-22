@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>최빈값 구하기</title>
+  </head>
+  <body>
+    <script>
+      function solution(array) {
+        let map = new Map();
+        let countArray = new Array();
+        let max = 0;
+
+        for (let i of array) {
+          //만약 map변수 안에 중복되는 값이 없다면 map안에 새로운 키(i)와 값 0을 선언해준다.
+          if (!map.has(i)) {
+            map.set(i, 0);
+          }
+
+          //만약 map변수 안에 중복되는 값이 있다면 값에 1을 더해준다.
+          if (map.has) {
+            map.set(i, map.get(i) + 1);
+          }
+
+          //Map.get(key)를 통해 ex)3보다 max의 값이 적은 경우 max의 값을 1씩 더해줘 결국 가장 큰 key값과 max값을 동일하게 만들어준다.
+          while (map.get(i) > max) {
+            max++;
+            console.log('map의 get값', map.get(i));
+          }
+        }
+
+        //map의 값이 max값과 동일한 경우 해당 map의 키를 countArray에 push해준다.
+        for (let [i, j] of map) {
+          if (j === max) countArray.push(i);
+        }
+
+        //countArray의 길이가 1과 동일한 경우 해당 키값을 출력해주고, 그렇지 않으면 값이 똑같은 키가 여러개 있다는 뜻이므로 -1을 리턴해준다.
+        return countArray.length === 1 ? countArray[0] : -1;
+      }
+
+      let array = [1, 2, 3, 3, 3, 4];
+      console.log(solution(array));
+    </script>
+  </body>
+</html>
