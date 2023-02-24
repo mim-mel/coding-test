@@ -12,8 +12,9 @@
         let num = 0;
 
         array.forEach(n => {
-          // array배열 요소가 x 요소를 포함하고 있다면
+          // array배열 요소가 x 요소를 포함하고 있을경우
           if (n.includes('x')) {
+            //array 배열에서 제거해주고, 제거해준 값은 xStr변수안에 넣어준다.
             //논리연산자(||) 앞의 값이 false일 경우 뒤의 값 1이 xNum에 들어온다
             const xStr = n.replace('x', '') || '1';
             xNum += parseInt(xStr);
@@ -30,7 +31,7 @@
           answer.push(`${xNum === 1 ? '' : xNum}x`);
         }
 
-        //나은 일반 수 num을 answer안에
+        //일반 수 num은 answer안에 push해준다.
         if (num) {
           answer.push(num);
         }
