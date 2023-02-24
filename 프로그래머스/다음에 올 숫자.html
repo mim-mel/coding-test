@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>다음에 올 숫자</title>
+  </head>
+  <body>
+    <script>
+      function solution(common) {
+        //등차수열 변수를 만들어 해당공식이 true, false인지를 넣어줌
+        const 등차수열 = common[1] - common[0] === common[2] - common[1];
+
+        if (등차수열) {
+          return common[common.length - 1] + common[1] - common[0];
+        } else {
+          return common[common.length - 1] * (common[1] / common[0]);
+        }
+
+        console.log(등차수열);
+      }
+
+      let common = [1, 2, 3, 4];
+      console.log(solution(common));
+    </script>
+  </body>
+</html>
