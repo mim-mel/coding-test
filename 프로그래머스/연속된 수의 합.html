@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>연속된 수의 합</title>
+  </head>
+  <body>
+    <script>
+      function solution(num, total) {
+        //시작값을 구하는 과정
+        //1-total을 num으로 나누어 연속되는 숫자의 중간값을 구한다.
+        //2-Math.floor(num/2)를 해서 구한 자릿수의 값을 빼어준다.
+        //3-최종값을 올림해서 시작값을 알아낸다
+        const min = Math.ceil(total / num - Math.floor(num / 2));
+
+        //num의 수만큼 배열을 만들어 초기값부터 인덱스와 같이 늘어나게 해줌
+        return Array.from({ length: num }, (_, index) => index + min);
+      }
+
+      let num = 4;
+      let total = 2;
+      console.log(solution(num, total));
+    </script>
+  </body>
+</html>
