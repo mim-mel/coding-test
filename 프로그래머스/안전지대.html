@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>안전지대</title>
+  </head>
+  <body>
+    <script>
+      function solution(board) {
+        let N = board.length;
+        const dangerX = [-1, 1, 0, 0, -1, -1, 1, 1];
+        const dangerY = [0, 0, -1, 1, -1, 1, -1, 1];
+
+        //지뢰가 설치된 곳
+        const booms = [];
+        for (let x = 0; x < N; x++) {
+          for (let y = 0; y < N; y++) {
+            if (board[x][y] === 1) {
+              booms.push([x, y]);
+            }
+          }
+        }
+
+        //지뢰가 설치된 곳의 주변을 1로 변경
+        booms.forEach(([x, y]) => {
+          for (let i = 0; i < dangerX.length; i++) {
+            const nx = x + dangerX[i];
+            const ny = y + dangerY[i];
+            //보드의 범위를 벗어나지 않는 경우에만 값을 변경해줌
+            if (0 <= nx && nx < N && 0 <= ny && ny < N) {
+              board[nx][ny] = 1;
+            }
+            console.log(board);
+          }
+        });
+
+        //1이 아닌 곳만 카운팅
+        let cnt = 0;
+        for (let x = 0; x < N; x++) {
+          for (let y = 0; y < N; y++) {
+            if (board[x][y] === 0) {
+              cnt++;
+            }
+            console.log(cnt);
+          }
+        }
+
+        return cnt;
+      }
+
+      let board = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0],
+      ];
+      console.log(solution(board));
+    </script>
+  </body>
+</html>
